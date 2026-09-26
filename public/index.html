@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div>
+                <h1>Student Management System</h1>
+                <p>Manajemen Data Siswa</p>
+            </div>
+
+            <button id="darkMode">
+                🌙 Dark Mode
+            </button>
+        </header>
+
+
+        <!-- PESAN -->
+        <div id="message"></div>
+
+
+        <!-- FORM -->
+        <div class="card">
+
+            <h2 id="formTitle">Tambah Siswa</h2>
+
+            <form id="formSiswa">
+
+                <input type="hidden" id="id">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label>NIS</label>
+                        <input
+                            type="text"
+                            id="nis"
+                            placeholder="Masukkan NIS"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label>Nama</label>
+                        <input
+                            type="text"
+                            id="nama"
+                            placeholder="Masukkan nama"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label>Kelas</label>
+                        <input
+                            type="text"
+                            id="kelas"
+                            placeholder="Contoh: XI RPL 1"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label>Jurusan</label>
+                        <input
+                            type="text"
+                            id="jurusan"
+                            placeholder="Masukkan jurusan"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <label>Alamat</label>
+
+                <textarea
+                    id="alamat"
+                    placeholder="Masukkan alamat"
+                    required
+                ></textarea>
+
+                <div class="form-button">
+
+                    <button type="submit" id="btnSimpan">
+                        💾 Simpan
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn-cancel"
+                        onclick="resetForm()"
+                    >
+                        Batal
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- DATA -->
+        <div class="card">
+
+            <div class="data-header">
+
+                <div>
+                    <h2>Daftar Siswa</h2>
+
+                    <p>
+                        Total siswa:
+                        <strong id="jumlahSiswa">0</strong>
+                    </p>
+                </div>
+
+                <button onclick="loadSiswa()">
+                    🔄 Refresh
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="filter">
+
+                <input
+                    type="text"
+                    id="search"
+                    placeholder="🔎 Cari nama atau NIS..."
+                    onkeyup="filterData()"
+                >
+
+                <select
+                    id="filterKelas"
+                    onchange="filterData()"
+                >
+                    <option value="">Semua Kelas</option>
+                </select>
+
+            </div>
+
+
+            <!-- LOADING -->
+            <div id="loading">
+                ⏳ Mengambil data...
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NIS</th>
+                            <th>Nama</th>
+                            <th>Kelas</th>
+                            <th>Jurusan</th>
+                            <th>Alamat</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="dataSiswa"></tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
