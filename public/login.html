@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .login {
+            width: 350px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: white;
+            color: #111;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #pesan {
+            text-align: center;
+            margin-top: 15px;
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Tombol Dark Mode */
+        .dark-button {
+            margin-top: 10px;
+            background: #475569;
+        }
+
+        .dark-button:hover {
+            background: #334155;
+        }
+
+        /* DARK MODE */
+        body.dark {
+            background: #0f172a;
+            color: white;
+        }
+
+        body.dark .login {
+            background: #1e293b;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        body.dark input {
+            background: #334155;
+            color: white;
+            border-color: #475569;
+        }
+
+        body.dark input::placeholder {
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+
+        <h2>Login Admin</h2>
+
+        <form id="loginForm">
+
+            <label>Username</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Masukkan username"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Masukkan password"
+                required
+            >
+
+            <button type="submit">Login</button>
+
+            <p id="pesan"></p>
+
+        </form>
+
+        <button class="dark-button" id="darkMode">
+            🌙 Dark Mode
+        </button>
+
+    </div>
+
+    <script>
+
+        // LOGIN
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '12345') {
+
+                window.location.href = 'index.html';
+
+            } else {
+
+                document.getElementById('pesan').textContent =
+                    'Username atau password salah';
+
+            }
+
+        });
+
+
+        // DARK MODE
+        const darkMode = document.getElementById('darkMode');
+
+        darkMode.addEventListener('click', function() {
+
+            document.body.classList.toggle('dark');
+
+            if (document.body.classList.contains('dark')) {
+                darkMode.textContent = '☀️ Light Mode';
+            } else {
+                darkMode.textContent = '🌙 Dark Mode';
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
