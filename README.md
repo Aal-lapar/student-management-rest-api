@@ -2,12 +2,27 @@
 
 ## Deskripsi
 
-Student Management REST API adalah aplikasi web untuk mengelola data siswa.
-Aplikasi ini dapat digunakan untuk melihat, menambah, mengubah, dan menghapus data siswa.
+Student Management REST API adalah aplikasi web sederhana yang digunakan untuk mengelola data siswa.
 
-Frontend menggunakan HTML, CSS, dan JavaScript dengan metode `fetch()` untuk berkomunikasi dengan REST API.
+Aplikasi ini menyediakan fitur untuk:
+
+- Melihat data siswa
+- Menambahkan data siswa
+- Mengubah data siswa
+- Menghapus data siswa
+- Mencari data siswa
+- Memfilter siswa berdasarkan kelas
+- Menampilkan jumlah siswa
+- Dark mode pada halaman utama
+
+Frontend menggunakan HTML, CSS, dan JavaScript. 
+JavaScript menggunakan metode `fetch()` untuk berkomunikasi dengan REST API yang dibuat menggunakan Express.js.
+
+---
 
 ## Teknologi
+
+Teknologi yang digunakan dalam project ini:
 
 - HTML
 - CSS
@@ -16,22 +31,42 @@ Frontend menggunakan HTML, CSS, dan JavaScript dengan metode `fetch()` untuk ber
 - Express.js
 - MySQL
 - REST API
-- Git & GitHub
+- Git
+- GitHub
+
+---
 
 ## Struktur Data Siswa
 
-Data siswa terdiri dari:
+Data siswa yang digunakan dalam aplikasi terdiri dari:
 
-- ID
-- NIS
-- Nama
-- Kelas
-- Jurusan
-- Alamat
+| Field | Keterangan |
+|---|---|
+| `id` | ID siswa |
+| `nis` | Nomor Induk Siswa |
+| `nama` | Nama siswa |
+| `kelas` | Kelas siswa |
+| `jurusan` | Jurusan siswa |
+| `alamat` | Alamat siswa |
 
-## Cara Menjalankan Project
+---
 
-### 1. Clone repository
+## Struktur Folder
 
-```bash
-git clone https://github.com/USERNAME/student-management-rest-api.git
+Struktur project:
+
+```text
+student-management-rest-api/
+│
+├── routes/
+│   └── siswa.js
+│
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+│
+├── server.js
+├── package.json
+├── package-lock.json
+└── README.md
